@@ -1,0 +1,11 @@
+{
+  "name": "flappy-bird-phaser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KPMGE/flappy-bird-phaser.git",
+  "author": "KPMGE <jesuskevin254@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "git+https://github.com/tapio/live-server.git#ad22544"
+  }
+}
