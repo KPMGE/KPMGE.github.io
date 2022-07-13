@@ -35,8 +35,8 @@ export default class Preload extends Phaser.Scene {
     });
   }
 
-  onComplete() {
-    console.log("Completo cara")
-    this.scene.start("title");
-  }
+  // onComplete() {
+  //   console.log("Completo cara")
+  //   this.scene.start("title");
+  // }
 }

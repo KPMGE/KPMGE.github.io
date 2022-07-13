@@ -2,6 +2,8 @@ import Phaser from './lib/phaser.js'
 import Start from './scenes/start.js'
 import Preload from './scenes/preload.js'
 import Title from './scenes/title.js'
+import Game from './scenes/game.js'
+// import PipesGroup from './scenes/pipes-group.js'
 
 new Phaser.Game({
   type: Phaser.AUTO,
@@ -9,7 +11,7 @@ new Phaser.Game({
   height: 512,
   pixelart: true,
   backgroundColor: '#000000',
-  scene: [Start, Preload, Title],
+  scene: [Start, Preload, Title, Game],
   physics: {
     default: 'arcade',
     arcade: {
