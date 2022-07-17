@@ -12,9 +12,9 @@ export class Game extends Phaser.Scene {
   private ground
   private bird
   private pipes
-  private pipes1
-  private pipes2
-  private stage
+  private pipes1: PipesGroup
+  private pipes2: PipesGroup
+  private stage: Stage
   private okButton
   private scoreButton
   private scoreGroup
@@ -74,9 +74,12 @@ export class Game extends Phaser.Scene {
   createPipes() {
     this.pipes = this.physics.add.staticGroup();
     this.pipes = this.physics.add.group();
+
     this.pipes1 = new PipesGroup(this.physics.world, this, 288);
+
     const x = 288 + 288 / 2 + this.pipes1.pipe1.width / 2;
-    this.pipes2 = new PipesGroup(this.physics.world, this, 288);
+
+    this.pipes2 = new PipesGroup(this.physics.world, this, x);
   }
 
   createStage() {
@@ -117,9 +120,13 @@ export class Game extends Phaser.Scene {
   }
 
   onJump() {
+    console.log("Jump", this.isStarted)
+
     if (!this.isStarted) {
+      console.log("Starting game")
       this.startGame();
     }
+
     this.bird.jump();
   }
 
@@ -148,7 +155,7 @@ export class Game extends Phaser.Scene {
   }
 
   hitPipes() {
-    // this.pipesOverlap.active = false;
+    this.pipesOverlap.active = false;
     this.isPaused = true;
     this.cameras.main.flash();
     this.bird.fall();
