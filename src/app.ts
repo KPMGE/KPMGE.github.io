@@ -3,6 +3,7 @@ import "phaser";
 import { Start } from './scenes/start'
 import { Title } from './scenes/title'
 import { Preload } from './scenes/preload'
+import { Game } from './scenes/game'
 
 const config = {
   type: Phaser.AUTO,
@@ -10,7 +11,7 @@ const config = {
   height: 512,
   pixelart: true,
   backgroundColor: '#000000',
-  scene: [Start, Preload, Title],
+  scene: [Start, Preload, Title, Game],
   physics: {
     default: 'arcade',
     arcade: {

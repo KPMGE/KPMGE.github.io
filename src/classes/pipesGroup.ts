@@ -5,10 +5,14 @@ export class PipesGroup extends Phaser.Physics.Arcade.Group {
   private pipe1
   private pipe2
 
-  initialize(scene, x) {
-    if (!scene) throw new Error('invalid scene!')
+  constructor(world, scene, x) {
+    super(world, scene)
+    this.initialize(scene, x)
+  }
 
+  initialize(scene, x) {
     let world = scene.physics.world;
+
     Phaser.Physics.Arcade.Group.call(this, world, scene);
     this.active = false;
     this.gap = 90;

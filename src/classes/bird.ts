@@ -4,6 +4,11 @@ export class Bird extends Phaser.Physics.Arcade.Sprite {
   private isAlive: boolean
   body
 
+  constructor(scene, x, y) {
+    super(scene, x, y, "")
+    this.initialize(scene, x, y)
+  }
+
   initialize(scene, x, y) {
     Phaser.Physics.Arcade.Sprite.call(this, scene, x, y, 'birds');
     this.scene.physics.world.enable(this);

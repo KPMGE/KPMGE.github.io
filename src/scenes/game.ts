@@ -3,7 +3,7 @@ import { PipesGroup } from '../classes/pipesGroup'
 import { Bird } from '../classes/bird'
 import { Stage } from '../classes/stage'
 
-export default class Game extends Phaser.Scene {
+export class Game extends Phaser.Scene {
   private isEnded
   private isPaused
   private isStarted
@@ -13,10 +13,13 @@ export default class Game extends Phaser.Scene {
   private bird
   private pipes
   private pipes1
+  private pipes2
   private stage
   private okButton
   private scoreButton
   private scoreGroup
+  private groundCollider
+  private pipesOverlap
 
   constructor() {
     super('game')
@@ -64,17 +67,16 @@ export default class Game extends Phaser.Scene {
   }
 
   createBird() {
-    this.bird = new Bird(this, 94, this.cameras.main.centerY, "");
+    this.bird = new Bird(this, 94, this.cameras.main.centerY);
     this.add.existing(this.bird);
   }
 
   createPipes() {
     this.pipes = this.physics.add.staticGroup();
     this.pipes = this.physics.add.group();
-    this.pipes1 = new PipesGroup(this, 288);
-    // const x = 288 + 288 / 2 + this.pipes1.pipe1.width / 2;
-    const x = 200
-    this.pipes2 = new PipesGroup(this, x);
+    this.pipes1 = new PipesGroup(this.physics.world, this, 288);
+    const x = 288 + 288 / 2 + this.pipes1.pipe1.width / 2;
+    this.pipes2 = new PipesGroup(this.physics.world, this, 288);
   }
 
   createStage() {
