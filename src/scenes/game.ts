@@ -4,13 +4,13 @@ import { Bird } from '../classes/bird'
 import { Stage } from '../classes/stage'
 
 export class Game extends Phaser.Scene {
-  private isEnded
-  private isPaused
-  private isStarted
-  private speed
-  private taptap
+  private isEnded: boolean
+  private isPaused: boolean
+  private isStarted: boolean
+  private speed: number
+  private taptap: Phaser.GameObjects.Image
   private ground
-  private bird
+  private bird: Bird
   private pipes
   private pipes1: PipesGroup
   private pipes2: PipesGroup
@@ -48,7 +48,7 @@ export class Game extends Phaser.Scene {
     this.taptap = this.add.image(144, 293, 'assets', 'taptap');
   }
 
-  update(time, delta) {
+  update() {
     Phaser.Scene.prototype.update.call(this);
 
     if (!this.isPaused && this.isStarted) {
@@ -120,10 +120,7 @@ export class Game extends Phaser.Scene {
   }
 
   onJump() {
-    console.log("Jump", this.isStarted)
-
     if (!this.isStarted) {
-      console.log("Starting game")
       this.startGame();
     }
 

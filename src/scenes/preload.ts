@@ -12,8 +12,6 @@ export class Preload extends Phaser.Scene {
   preload(): void {
     this.preloadImage()
     this.preloadAudio()
-    // this.load.on('progress', this.onProgress.bind(this))
-    // this.load.on('complete', this.onComplete.bind(this))
   }
 
   preloadImage(): void {
@@ -29,7 +27,7 @@ export class Preload extends Phaser.Scene {
   }
 
   preloadAudio(): void {
-    var audio = ['die', 'hit', 'point', 'swooshing', 'wing']
+    let audio = ['die', 'hit', 'point', 'swooshing', 'wing']
     audio.forEach(asset => {
       this.load.audio(asset, './src/assets/audio/' + asset + '.wav')
     })

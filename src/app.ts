@@ -1,4 +1,4 @@
-import "phaser";
+import "phaser"
 
 import { Start } from './scenes/start'
 import { Title } from './scenes/title'
@@ -15,9 +15,6 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      // gravity: {
-      //   y: 1000
-      // },
       debug: false
     }
   },
@@ -33,14 +30,14 @@ const config = {
       height: 2048
     }
   }
-};
+}
 
 export class FlappyBirdGame extends Phaser.Game {
   constructor(config) {
-    super(config);
+    super(config)
   }
-};
+}
 
 window.onload = () => {
-  var game = new FlappyBirdGame(config);
-};
+  let game = new FlappyBirdGame(config)
+}
